@@ -1,4 +1,4 @@
-# FL-EVO: Federated Learning with Evolutionary PSO Aggregation for EEG-Based BCIs
+# FL-EVO: Federated Learning with Evolutionary Aggregation for EEG-Based BCIs
 
 Federated learning for EEG motor-imagery classification, with a focus on **robust
 aggregation under adversarial (Byzantine) clients**. This repository contains the
