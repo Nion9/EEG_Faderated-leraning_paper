@@ -144,53 +144,53 @@ other 106 subjects loaded all six runs cleanly with no flat channels.
 ## 8. Visualizations
 
 All charts below were produced from `per_subject_summary.csv` / `features.npz`.
-Images live in `assets/`.
+Images live in `figures/`.
 
 ### 8.1 Separability distribution
 
-![SVM accuracy distribution](assets/svm_accuracy_distribution.jpg)
+![SVM accuracy distribution](figures/svm_accuracy_distribution.jpg)
 
 Distribution of within-subject SVM accuracy across the 106 subjects. The bulk sits
 between 0.65 and 0.85; a long right tail of strong subjects reaches 0.97. This is the
 single most important quality view — it shows how much usable signal each client carries.
 
-![Within-subject separability distribution](assets/within_subject_separability.jpg)
+![Within-subject separability distribution](figures/within_subject_separability.jpg)
 
 A second view of the same separability distribution (within-subject SVM accuracy).
 
 ### 8.2 Motor signal (ERD) vs separability
 
-![SVM vs ERD Mu with trend](assets/svm_vs_erd_mu_trend.jpg)
+![SVM vs ERD Mu with trend](figures/svm_vs_erd_mu_trend.jpg)
 
 SVM accuracy against mu-band ERD, with a fitted trend line. The slope is mild —
 mu ERD alone does not strongly predict separability (r ≈ −0.17).
 
-![SVM vs ERD Beta with trend](assets/svm_vs_erd_beta_trend.jpg)
+![SVM vs ERD Beta with trend](figures/svm_vs_erd_beta_trend.jpg)
 
 The beta-band version shows a steeper negative trend (r ≈ −0.45): subjects with
 stronger beta suppression tend to be more separable.
 
-![Beta ERD vs SVM accuracy](assets/beta_erd_vs_accuracy.jpg)
+![Beta ERD vs SVM accuracy](figures/beta_erd_vs_accuracy.jpg)
 
-![Motor ERD vs separability (mu and beta)](assets/motor_erd_vs_separability.jpg)
+![Motor ERD vs separability (mu and beta)](figures/motor_erd_vs_separability.jpg)
 
 Mu (blue) and beta (red) ERD overlaid against separability. The vertical line at 0
 marks the boundary between healthy suppression (left) and wrong-sign subjects (right).
 
-![Mu and Beta ERD vs SVM accuracy, by subject](assets/mu_beta_erd_vs_accuracy.jpg)
+![Mu and Beta ERD vs SVM accuracy, by subject](figures/mu_beta_erd_vs_accuracy.jpg)
 
 Joint mu–beta ERD scatter, colored per subject. Most subjects cluster in the
 lower-left quadrant (both bands suppressed).
 
 ### 8.3 Inter-subject heterogeneity
 
-![Client centroids: mu vs beta log-variance](assets/client_centroids_heterogeneity.jpg)
+![Client centroids: mu vs beta log-variance](figures/client_centroids_heterogeneity.jpg)
 
 Per-subject centroids in mean mu vs mean beta log-variance. The tight diagonal
 correlation is the visual signature of the **low-rank, single-axis heterogeneity** —
 subjects differ mostly in overall power level, not in band-specific structure.
 
-![Four-panel diagnostic summary](assets/eda_diagnostics.png)
+![Four-panel diagnostic summary](figures/eda_diagnostics.png)
 
 Consolidated diagnostic: (A) separability with quality tiers, (B) ERD vs separability,
 (C) client centroids in PC space colored by accuracy, (D) the scree plot showing PC1
@@ -198,25 +198,25 @@ explains 90% of between-subject variance.
 
 ### 8.4 Quality-control checks
 
-![Accuracy vs class balance](assets/accuracy_vs_class_balance.jpg)
+![Accuracy vs class balance](figures/accuracy_vs_class_balance.jpg)
 
 Accuracy against class balance — balance is pinned near 0.50, so no subject is
 confounded by skewed classes.
 
-![Accuracy vs signal amplitude](assets/accuracy_vs_signal_amplitude.jpg)
-![Accuracy vs maximum amplitude](assets/svm_vs_max_amplitude.jpg)
+![Accuracy vs signal amplitude](figures/accuracy_vs_signal_amplitude.jpg)
+![Accuracy vs maximum amplitude](figures/svm_vs_max_amplitude.jpg)
 
 Accuracy against amplitude proxies — no strong dependence, i.e. separability is not
 being driven by high-amplitude artifacts. (The three amplitude clusters reflect
 recording-gain groups, not signal quality.)
 
-![Accuracy vs feature standard deviation](assets/accuracy_vs_feature_std.jpg)
-![Accuracy vs flat channels](assets/accuracy_vs_flat_channels.jpg)
+![Accuracy vs feature standard deviation](figures/accuracy_vs_feature_std.jpg)
+![Accuracy vs flat channels](figures/accuracy_vs_flat_channels.jpg)
 
 Feature spread shows a mild positive relationship; flat-channel count is 0 for every
 subject (clean recordings).
 
-![Accuracy vs available epochs](assets/accuracy_vs_epochs.jpg)
+![Accuracy vs available epochs](figures/accuracy_vs_epochs.jpg)
 
 Epoch counts are tightly clustered (~180), so trial count is not a confound.
 
@@ -281,4 +281,4 @@ question either way.
 | `features.npz` | Raw 128-dim log-variance features, labels, subject IDs (19,040 epochs) |
 | `meta.json` | Extraction config, channel list, excluded-record log |
 | `extract_eda.py` | Extraction script (reproduces all of the above) |
-| `assets/` | All charts referenced in §8 |
+| `figures/` | All charts referenced in §8 |
